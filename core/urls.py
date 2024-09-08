@@ -23,4 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/', include('post.urls')),
     path('privet/', include('privet.urls')),
+    path('', include('privet.urls')),
+    path('library/library/', include('library.urls')),
 ]
