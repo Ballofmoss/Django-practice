@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'post.apps.PostConfig',
     'privet',
     'library',
+    'pr3',
 ]
 
 MIDDLEWARE = [
