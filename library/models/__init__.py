@@ -6,8 +6,8 @@ from .teacher import Teacher
 from .course import Course
 
 __all__ =(
-    'Book',
     'Author',
+    'Book',
     'Publisher',
     'Student',
     'Teacher',
