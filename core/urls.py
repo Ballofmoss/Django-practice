@@ -24,5 +24,5 @@ urlpatterns = [
     path('post/', include('post.urls')),
     path('privet/', include('privet.urls')),
     path('', include('privet.urls')),
-    path('library/library/', include('library.urls')),
+    path('library/', include('library.urls')),
 ]
