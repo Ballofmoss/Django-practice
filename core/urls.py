@@ -25,4 +25,5 @@ urlpatterns = [
     path('privet/', include('privet.urls')),
     path('', include('privet.urls')),
     path('library/', include('library.urls')),
+    path('kitchenware/', include('kitchenware.urls')),
 ]
