@@ -1,3 +1,6 @@
 from django.contrib import admin
+from kitchenware.models import Product
 
-# Register your models here.
+@admin.register(Product)
+class AdminProduct(admin.ModelAdmin):
+    pass

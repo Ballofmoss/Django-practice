@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'privet',
     'library',
     'pr3',
+    'kitchenware',
 ]
 
 MIDDLEWARE = [
