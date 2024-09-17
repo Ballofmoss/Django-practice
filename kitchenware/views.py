@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from library.models.book import Book
 from kitchenware.models.products import Product
+from django.db.models import Q
 # Create your views here.
 
 
@@ -28,7 +30,13 @@ def get_products(request):
     print(products)
     return render(request, 'products.html', context ={"products": products,})
 
-
-def get_publisher(request):
-    book_publisher = Book.objects.filter(publishers__name="Rich")
-    return render(request, 'publisher.html', context ={"book_publisher": book_publisher,})
+def search_book(request):
+    if request.method == "GET":
+        search = request.GET['search']
+        products = Product.object.filter(
+            Q(name__icontains = search) | Q(description__icontains = search))
+        return render(request, template_name='products.html', context ={
+            "product": products,
+            "title": "Посуда"
+    })
+    return redirect(reverse('home'))
