@@ -18,6 +18,11 @@ def get_homepage(request):
 def get_about(request): 
     return render(request, 'about.html')
 
+def get_product_detail(request, pk):
+    product = Product.objects.get(pk=pk)
+    return render(request, 'detail_product.html', context ={"product": product,})
+    
+
 def get_products(request):
     products = Product.objects.all()
     print(products)

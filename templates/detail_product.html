@@ -1,0 +1,23 @@
+{% extends "base.html" %} 
+
+
+{% block content %}
+
+<div class="mx-auto container m-5 p-8 border flex text-[20px] item-center">
+    <img class=" mx-auto mr-5 h-[500px]" src="{{ product.image.url }}" />
+    <div>
+         <div class="m-2 font-bold">{{product.name}}</div>
+    <div class="m-2">{{product.description}}</div>
+    <div class="m-2 font-bold">{{product.price}} руб.</div>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}

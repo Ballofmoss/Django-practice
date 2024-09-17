@@ -6,11 +6,9 @@
 {% for i in products %}
 <div class="m-5 p-8 border ">
     <img class=" mx-auto" src="{{ i.image.url }}" />
-    <div class="m-2 font-bold">{{i.name}}</div>
+    <a href="{% url 'product_detail' i.id%}"><div class="m-2 font-bold">{{i.name}}</div></a>
     <div class="m-2">{{i.description}}</div>
     <div class="m-2 font-bold">{{i.price}} руб.</div>
-    <a href="{% url 'products' %}">dddddd</a>
-    
 </div>
 {% endfor %}
 </div>
