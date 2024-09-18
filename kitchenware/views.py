@@ -30,13 +30,13 @@ def get_products(request):
     print(products)
     return render(request, 'products.html', context ={"products": products,})
 
-def search_book(request):
+def search_product(request):
     if request.method == "GET":
         search = request.GET['search']
-        products = Product.object.filter(
+        products = Product.objects.filter(
             Q(name__icontains = search) | Q(description__icontains = search))
         return render(request, template_name='products.html', context ={
-            "product": products,
+            "products": products,
             "title": "Посуда"
     })
     return redirect(reverse('home'))

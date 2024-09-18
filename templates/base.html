@@ -20,7 +20,10 @@
                       <a href="{% url 'about' %}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О нас</a>
                       <a href="{% url 'products' %}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Товары</a>
                       <div>
-                       
+                       <form action="{% url 'search'%}"> 
+                        <input type="text" name="search">
+                        <button type="submit">Поиск</button>
+                       </form>
                       </div>
                     </div>
                   </div>
