@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'library',
     'pr3',
     'kitchenware',
+    'account.apps.AccountConfig',
+    
 ]
 
 MIDDLEWARE = [

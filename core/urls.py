@@ -23,11 +23,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('privet.urls')),
     path('post/', include('post.urls')),
     path('privet/', include('privet.urls')),
-    path('', include('privet.urls')),
+    
     path('library/', include('library.urls')),
     path('kitchenware/', include('kitchenware.urls')),
+    path('register/', include('account.urls')),
 ]
 
 if settings.DEBUG:
