@@ -19,7 +19,18 @@
                       <a href="{% url 'home' %}" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Главная</a>
                       <a href="{% url 'about' %}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">О нас</a>
                       <a href="{% url 'products' %}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Товары</a>
-                      <div>
+                    {% if request.user %}
+                     <a class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"> 
+                      {{request.user.username}}
+                      </a> 
+                      <div class="rounded-md px-3 py-2 text-sm font-medium  hover:bg-gray-700 hover:text-white">
+                        <form action="{% url 'logout'%}"> 
+                          <button type="submit">Выйти</button>
+                        </form>
+                      </div>
+                    {%endif%}
+                      
+                      <div class="rounded-md px-3 py-2 text-sm font-medium  hover:bg-gray-700 hover:text-white">
                        <form action="{% url 'search'%}"> 
                         <input type="text" name="search">
                         <button type="submit">Поиск</button>
