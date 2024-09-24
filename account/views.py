@@ -3,9 +3,10 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import RegisterForm, LoginForm
 from django.http import HttpRequest
 from django.contrib.auth.models import User
-
-# jaba
-# -BeM8GueMJ
+from account.models.profile import Profile
+from django.contrib.auth.decorators import login_required
+# kot
+# 5yxpPQ0rz_
 def register(request:HttpRequest):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -40,5 +41,27 @@ def login_user(request:HttpRequest):
 def logout_user(request:HttpRequest):
         logout(request)
         return redirect('home')
+    
+@login_required(login_url='login')
+def profile_view(request: HttpRequest):
+    user = Profile.objects.select_related('user').get(user=request.user)
+    return render(request, 'profile.html', context={
+        'user' : user
+    })
+# def update_profile(request):
+#     if request.method == 'POST':
+#         user_form = UpdateUserForm(request.Post, instance=request.user)
+#         profile_form = UpdateProfileForm(request.Post, instance=request.user.profile)
+        
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, 'Your profile is updated successfully')
+#             return redirect('user/profile')
+#         else:
+#             user_form = UpdateUserForm(instance=request.user)
+#             profile_form = UpdateProfileForm(instance=request.user.profile)
+
+#          return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 

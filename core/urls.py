@@ -29,9 +29,7 @@ urlpatterns = [
     
     path('library/', include('library.urls')),
     path('kitchenware/', include('kitchenware.urls')),
-    path('register/', include('account.urls')),
-    path('authorise/', include('account.urls')),
-    
+    path('user/', include('account.urls')), 
 ]
 
 if settings.DEBUG:

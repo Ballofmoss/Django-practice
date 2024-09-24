@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
+from account.models.profile import Gender
 
 
 
@@ -102,3 +103,59 @@ class LoginForm(AuthenticationForm):
         if not User.objects.filter(username=username):
             raise forms.ValidationError('Такого пользователя не существует', code='invalid')
         return username
+    
+class UpdateUserForm(forms.ModelForm):
+    username = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите новый логин',
+            }
+        ))
+    email = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите новую электронную почту',
+            }
+        ))
+    
+    class Meta:
+        model = User
+        fields = ('username', 'email')
+
+class UpdateProfileForm(forms.ModelForm):
+    gender = forms.ChoiceField( choices=Gender, required=False, blank=True, max_length=20)
+    
+    country = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите страну',
+            }
+        ))
+    city = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите город',
+            }
+        ))
+    street = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите улицу',
+            }
+        ))
+    house = forms.CharField( max_length=20, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите номер дома',
+            }
+        ))
+    apartament_number = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+        attrs={
+            'autocomplete': 'text',
+            'placeholder': 'Введите номер квартиры',
+            }
+        ))
+
+    class Meta:
+        model = Profile
+        fields = ('gender', 'country', 'city', 'street', 'house', 'apartament_number')
