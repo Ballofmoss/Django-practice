@@ -15,3 +15,10 @@ def cart_remove(request: HttpRequest, product_id):
     cart = CartSession(request.session)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product=product)
+    return redirect(reverse('cart_detail'))
+
+def cart_detail(request: HttpRequest):
+    cart = CartSession(request.session)
+    return render(request, 'cart_detail.html', context={
+        'cart': cart
+    })
