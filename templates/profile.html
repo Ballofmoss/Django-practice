@@ -7,4 +7,6 @@
 <h2>Пол: {{ user.gender}}</h2>
 
 <h2> Город: {{ user.city}}</h2>
+
+<a href="{% url 'changeProfile' %}">Сменить данные пользователя</a>
 {% endblock %}

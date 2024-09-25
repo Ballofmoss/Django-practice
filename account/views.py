@@ -5,6 +5,7 @@ from django.http import HttpRequest
 from django.contrib.auth.models import User
 from account.models.profile import Profile
 from django.contrib.auth.decorators import login_required
+from account.forms import UpdateUserForm, UpdateProfileForm
 # kot
 # 5yxpPQ0rz_
 def register(request:HttpRequest):
@@ -48,20 +49,21 @@ def profile_view(request: HttpRequest):
     return render(request, 'profile.html', context={
         'user' : user
     })
-# def update_profile(request):
-#     if request.method == 'POST':
-#         user_form = UpdateUserForm(request.Post, instance=request.user)
-#         profile_form = UpdateProfileForm(request.Post, instance=request.user.profile)
-        
-#         if user_form.is_valid() and profile_form.is_valid():
-#             user_form.save()
-#             profile_form.save()
-#             messages.success(request, 'Your profile is updated successfully')
-#             return redirect('user/profile')
-#         else:
-#             user_form = UpdateUserForm(instance=request.user)
-#             profile_form = UpdateProfileForm(instance=request.user.profile)
-
-#          return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
-
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, instance=request.user.profile)
+        print(user_form.errors.as_text())
+        print(profile_form.errors.as_text())
+        if user_form.is_valid() and profile_form.is_valid():
+         
+            user_form_result =  user_form.save()
+            profile_form_result = profile_form.save()
+            user_form_result.save()
+            profile_form_result.save()
+        return redirect('/user/profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+        return render(request, 'change_profile.html', {'user_form': user_form, 'profile_form': profile_form})
 

@@ -27,6 +27,7 @@ urlpatterns = [
     path('post/', include('post.urls')),
     path('privet/', include('privet.urls')),
     
+    
     path('library/', include('library.urls')),
     path('kitchenware/', include('kitchenware.urls')),
     path('user/', include('account.urls')), 

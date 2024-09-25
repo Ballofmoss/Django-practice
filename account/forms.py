@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
-from account.models.profile import Gender
+from account.models.profile import Gender, Profile
 
 
 
@@ -105,13 +105,13 @@ class LoginForm(AuthenticationForm):
         return username
     
 class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+    username = forms.CharField( max_length=100, required=False, widget = forms.TextInput(
         attrs={
             'autocomplete': 'text',
             'placeholder': 'Введите новый логин',
             }
         ))
-    email = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
+    email = forms.CharField( max_length=100, required=False, widget = forms.TextInput(
         attrs={
             'autocomplete': 'text',
             'placeholder': 'Введите новую электронную почту',
@@ -123,7 +123,7 @@ class UpdateUserForm(forms.ModelForm):
         fields = ('username', 'email')
 
 class UpdateProfileForm(forms.ModelForm):
-    gender = forms.ChoiceField( choices=Gender, required=False, blank=True, max_length=20)
+    gender = forms.ChoiceField( choices=Gender, required=False)
     
     country = forms.CharField( max_length=100, required=True, widget = forms.TextInput(
         attrs={
