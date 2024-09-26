@@ -17,6 +17,12 @@ def cart_remove(request: HttpRequest, product_id):
     cart.remove(product=product)
     return redirect(reverse('cart_detail'))
 
+def cart_remove_all(req: HttpRequest):
+    cart = CartSession(req.session)
+    cart.clear()
+
+    return redirect('cart_detail')
+
 def cart_detail(request: HttpRequest):
     cart = CartSession(request.session)
     return render(request, 'cart_detail.html', context={

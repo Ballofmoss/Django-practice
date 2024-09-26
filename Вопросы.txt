@@ -1,8 +1,17 @@
-1. Какой тип аутентификации используется в django?
-сессии
+1. Для чего нужны контекст процессор?
+позволяет сделать определенные данные доступными 
+для всех шаблонов без необходимости передавать их в каждом view.
 
-2. Для чего нужна аутентификация?
-чтобы убедится в подлинности пользователя, проверить тот ли он, за кого себя выдает
+2.  Где можно хранить сессию?
+База данных (django.contrib.sessions.backends.db)
+Куки (django.contrib.sessions.backends.signed_cookies)
+Кэш (django.contrib.sessions.backends.cache)
+Файловая система (django.contrib.sessions.backends.file)
+Кэш+база данных (django.contrib.sessions.backends.cached_db)
+
+
+
+
 
 
 

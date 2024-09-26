@@ -4,7 +4,7 @@
     <div class="cart__body">
         {% for item in cart %}
             <div>
-                Количество: {{item.quanity}}
+                Количество: {{item.quanity}} <a href="{% url 'cart_add' item.product.id %}">+</a>
                 Цена: {{item.price}}
                 <img src="{{item.product.image.url}}" width="100px" height="100px">
                 <a href='{% url "cart_remove" item.product.id%}'>Удалить</a>
@@ -12,4 +12,7 @@
         {% endfor %}
     </div>
     Сумма корзины:{{cart.get_total_price}}
+    {% if cart %}
+    <a href="{% url 'cart_remove_all'%}">Очистить корзину</a>
+    {% endif%}
 {%endblock%}

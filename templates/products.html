@@ -9,7 +9,7 @@
     <a href="{% url 'product_detail' i.id%}"><div class="m-2 font-bold">{{i.name}}</div></a>
     <div class="m-2">{{i.description}}</div>
     <div class="m-2 font-bold">{{i.price}} руб.</div>
-    <a href="{% url 'cart_add' i.id %}"></a>
+    <a class="m-2 font-bold" href="{% url 'cart_add' i.id %}">Добавить в корзину</a>
 </div>
 {% endfor %}
 </div>
