@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('privet.urls')),
     path('post/', include('post.urls')),
     path('privet/', include('privet.urls')),
+     path('cart/', include('cart.urls')),
     
     
     path('library/', include('library.urls')),
