@@ -1,13 +1,7 @@
-1. Для чего нужны контекст процессор?
-позволяет сделать определенные данные доступными 
-для всех шаблонов без необходимости передавать их в каждом view.
+Для чего нужны тестировать веб-приложение?
 
-2.  Где можно хранить сессию?
-База данных (django.contrib.sessions.backends.db)
-Куки (django.contrib.sessions.backends.signed_cookies)
-Кэш (django.contrib.sessions.backends.cache)
-Файловая система (django.contrib.sessions.backends.file)
-Кэш+база данных (django.contrib.sessions.backends.cached_db)
+они помогают выявить ошибки и дефекты в коде до того, как они 
+достигнут конечного пользователя
 
 
 
