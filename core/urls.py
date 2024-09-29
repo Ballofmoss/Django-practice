@@ -32,6 +32,7 @@ urlpatterns = [
     path('library/', include('library.urls')),
     path('kitchenware/', include('kitchenware.urls')),
     path('user/', include('account.urls')), 
+    path('order/', include('order.urls')), 
 ]
 
 if settings.DEBUG:

@@ -15,4 +15,14 @@
     {% if cart %}
     <a href="{% url 'cart_remove_all'%}">Очистить корзину</a>
     {% endif%}
+    <div>
+        <div>
+            <h2>Оформление заказа</h2>
+        </div>
+        <form action="{% url 'create_order'%}" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Заказ</button>
+        </form>
+    </div>
 {%endblock%}

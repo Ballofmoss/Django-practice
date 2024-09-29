@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'kitchenware',
     'account.apps.AccountConfig',
     'cart',
+    'order',
 ]
 
 MIDDLEWARE = [
