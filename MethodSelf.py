@@ -5,9 +5,9 @@ class UserSchem: pass
 
 class DataBase: 
     users_data = []
-    def get_data(self):
-        with open('pivo.txt', 'r', encoding='UTF=8') as f:
-            result =f.readlines()
+    def get_data(self, url):
+        with open(url, 'r', encoding='UTF=8') as f:
+            result = f.readlines()
             f.close()
             return result
     def serializers(self, data):
@@ -25,9 +25,10 @@ class DataBase:
             for key, item in i.items():
                 setattr(user, key, item)
                 self.users_data.append(user)
+    # def search()
 
 daata = DataBase()
-text = daata.get_data()
+text = daata.get_data('pivo.txt')
 daata.create(text)
 print(daata.users_data)
  
