@@ -35,8 +35,15 @@ class DataBase:
 class Translator: 
     dictionary: dict = {}
     def add(self, eng: str, rus: str):
-        if self.dictionary.get
-        dict.append
+        if self.dictionary.get(eng) is not None:
+            if type(self.dictionary.get(eng)) is list:
+                self.dictionary[eng].append(rus)
+            else:
+                temp = self.dictionary[eng]
+                self.dictionary[eng] = [temp, rus]
+        else:
+            self.dictionary[eng] = rus
+                
         
         
     
