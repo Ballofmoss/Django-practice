@@ -1,4 +1,4 @@
 id 1 name Илья age 23
-id 2 name Илья age 23 height 180
-id 1 name Илья age 23
-id 1 name Илья age 23
+id 2 name Илья age 278 height 180
+id 1 name Илья age 253
+id 1 name Илья age 235
