@@ -31,6 +31,8 @@ daata = DataBase()
 text = daata.get_data('pivo.txt')
 daata.create(text)
 print(daata.users_data)
+
+
  
         
             
