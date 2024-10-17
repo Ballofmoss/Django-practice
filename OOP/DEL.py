@@ -33,8 +33,44 @@ class Linked:
         return count
     def search(self, data):
         temp = self.data
-        while(self.start):
-            if
+        while(temp):
+            if data == temp.data:
+                return temp
+        temp = temp.next
+    def append(self, obj):
+        new_node = Node(obj)
+        if self.start is None:
+            self.start = new_node
+            return
+        current_node = self.start
+        while(current_node.next):
+            current_node = current_node.next
+        current_node.next = new_node
+    def remove(self, index: int):
+        if self.start == None:
+            return
+        current_node = self.start
+        position = 0
+        if position == index:
+            self.start = self.start.next
+        else:
+            while(current_node != None and position + 1 != index):
+                position = position + 1
+                current_node = current_node.next
+
+            if current_node != None:
+                current_node.next = current_node.next.next
+
+# 1. Как работают метод __init__ и __del__.
+# __init__ срабатывает при инициализации обьекта, а __del__ при его удалении
+
+# 2. Какая последняя строчка вывелась после выполнения программы из практической
+# части?   10
+
+
+
+    
+
         
         
         
