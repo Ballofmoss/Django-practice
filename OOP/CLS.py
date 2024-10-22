@@ -14,24 +14,22 @@
 # print(sing2)\
 
 class Book:
-
-    self.title = title
-    self.author = author
-    self.year = year   
+    bibliothec = []
+    title = None
+    author = None
+    year = None  
     def __new__(cls, *args, **kwargs):
-        for i in book.bibliothec:
+        for i in Book.bibliothec:
+            if i.title == args[0] and i.author == args[1]:
+                print('но уже же есть')
+                return i
+        return super(Book, cls).__new__(cls)
             
-            
-        if book.bibliothec.__count<5:
-            obj = super(five, cls).__new__(cls)
-            return obj
-        elif five.__count<6:
-            obj = super(five, cls).__new__(cls)
-            return obj
-        else:
-            print('Вы уже создали максимальное число объектов класса five')
-    def __init__(self):
-        Book.bibliothec.append(self.name)
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+        Book.bibliothec.append(self)
 
 class five: 
     
@@ -49,17 +47,15 @@ class five:
     def __init__(self):
         five.__count += 1
         
-f1 = five()
-f2 = five()
-f3 = five()
-f4 = five()
-f5 = five()
-f6 = five()
-f6 = five()
+book1 = Book("эм", "em", 123)
+
 
 
 
 # 1. Чем отличаются метод __new__ от __init__?
+# __new__ вызывается до __init__ и
+# отвечает за создание (и возврат) нового объекта.
+
 
 # 2. Для чего нужен класс super()?
 
