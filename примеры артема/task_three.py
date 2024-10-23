@@ -50,7 +50,7 @@ class LinkedList:
             self.start = self.start.next
         else:
             while(current_node != None and position + 1 != index):
-                position = position + 1
+                position += 1
                 current_node = current_node.next
 
             if current_node != None:
@@ -67,4 +67,4 @@ class LinkedList:
 
 # ! КОНТРОЛЬНЫЕ ВОПРОСЫ
 # 1. __init__ срабатывает при инициализации обьекта, а __del__ при его удалении
-# 2. 10
+# 2. Ресурс 1 удален
