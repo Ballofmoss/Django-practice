@@ -43,8 +43,44 @@ class Product:
         result = price * discount / 100
         return result
     
+class Employee:
+    def __init__(self, name, salary, age):
+        self._name = name
+        self._salary = salary
+        self._age = age
     
-# Сделать имплоииии
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def set_name(self, name):
+        self._name = name
+    
+    @property
+    def salary(self):
+        return self._salary
+    @salary.setter
+    def set_salary(self, amount):
+        if amount>=30000:
+            self._salary=amount
+        else:
+           raise ValueError("Зарплата не может быть меньше 30000")
+    def apply_raise(self,count):
+        self.salary=int(self.salary*count)
+
+    
+    @property 
+    def age(self):
+        return self._age
+    @age.setter
+    def set_age(self, age):
+        self._age = age
+    @age.deleter
+    def del_age(self):
+        self._age = None
+    
+    
+
 
 # 1. Чем декоратор @property отличается от обычных методов?
 # позволяет скрывать реализацию атрибута
