@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Shop:
     def __init__(self):
         self.goods = []
@@ -44,13 +46,25 @@ class Library:
     books: list[str] = []
     max_books: int = None
 
+    @property
+    def books(self):
+        return self._books
     def __init__(self, name: str, max_books: int):
         self.name = name
         self.max_books = max_books
+    def add_book(self, book:str):
+        if len(self.books) < self.max_books:
+            self.books.append(book)
+    def remove_book(self, book:str):
+        self.books.remove(book)
+    def list_books(self):
+        for book in self.books:
+            print(book)
+    
+    
 
     def __getattribute__(self, name):
-        print(f'[LOG] {datetime.now().("")}', name)
-
+        print(f'[GET LOG | {datetime.now().strftime("%H:%M:%S")}] ', name)
         return super().__getattribute__(name)
 
     def __setattr__(self, name, value):
@@ -59,8 +73,13 @@ class Library:
         
         if name == 'books' and len(self.books) > self.max_books:
             raise AttributeError('Кол-во книжек превышает max_books')
-        
         super().__setattr__(name, value)
+    
+    def __delattr__(self, name:str) -> None:
+        if name == 'name':
+            raise AttributeError('Нельзя удалить атрибут name')
+        print(f'[DELETE LOG | {datetime.now().strftime("%H:%M:%S")}]')
+        super().__delattr__(name)
         
 # # 1. Какие практические применения есть у магического метода __setattr__?
 #  Этот метод вызывается, когда мы пытаемся установить значение атрибута
