@@ -42,3 +42,25 @@ f = Fibonachi(100)
 
 for i in f:
     print(i)
+
+class Multiplier:
+    prev: float = 0
+    def __init__(self, multiplier: float):
+        self.multiplier = multiplier
+    
+    def __next__(self):
+        self.prev += multiplier
+        return self.prev
+
+# 1. Что такое итератор в Python?
+# Класс который реализует метод __next__
+
+# 2. Чем итерируемый объект отличается от итератора?
+# итер объект это экземпляр класса-итератора
+
+# 3. Как остановить итерацию внутри метода __next__?
+# raise StopIteration
+        
+        
+
+
