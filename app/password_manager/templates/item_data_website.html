@@ -6,3 +6,15 @@
         hx-swap="innerHTML"
         href="#"
         ></a>   
+           <a hx-get="{% url 'website_data_update' website.id %}" 
+        hx-target="#detail_data"
+        hx-trigger="click"
+        hx-swap="innerHTML"
+        href="#"
+        ></a>   
+        </a>   
+           <a hx-get="{% url 'website_data_delete' website.id %}" 
+        hx-target="#app"
+        hx-trigger="click"
+        hx-swap="innerHTML"
+        ></a>   
