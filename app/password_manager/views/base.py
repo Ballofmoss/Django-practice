@@ -1,7 +1,9 @@
 from urllib import response
 from django import template
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, FormView
 from password_manager.models.entry_password import EntryPassword
+from password_manager.forms.entry_password_form import EntryPasswordForm
+from password_manager.forms.search_form import SearchWebSiteForm
 from django.shortcuts import render
 
 class HomeView(ListView):
