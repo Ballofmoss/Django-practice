@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, F
 from password_manager.models.entry_password import EntryPassword
 from password_manager.forms.entry_password_form import EntryPasswordForm
 from password_manager.forms.search_form import SearchWebSiteForm
+from password_manager.views.mixins import MixinFormValidTemplate
 from django.shortcuts import render
 
 class HomeView(ListView):
@@ -21,7 +22,7 @@ class WebSiteDataDetailView(DetailView):
     model = EntryPassword
     context = 'website'
 
-class WebsiteDataCreateView(CreateView):
+class WebsiteDataCreateView(MixinFormValidTemplate,CreateView):
     template_name = "website_form_create.html"
     model = EntryPassword
     form_class = EntryPassword  
@@ -33,7 +34,7 @@ class WebsiteDataCreateView(CreateView):
             'website': self.object
         })
     
-class WebsiteDataUpdateView(UpdateView):
+class WebsiteDataUpdateView(MixinFormValidTemplate, UpdateView):
     template_name = "website_form_update.html"
     model = EntryPassword
     form_class = EntryPasswordForm
