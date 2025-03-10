@@ -76,6 +76,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+TTL_OTP = 300
+HOST_REDIS = 'redis'
+PORT_REDIS = '6379'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
